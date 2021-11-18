@@ -17,7 +17,7 @@ The base program I wrote to handle this is called prtspool. It is a simple C pro
 
 It is invoked with `prtspool MSGCLASS OUTPUT_DIRECTORY [COMMAND]` where `MSGCLASS` is the JES2 MSGCLASS that prtspool scans for, output directory is the directory to dump output, and COMMAND is a command to call after processing a job. When the command is called, prtspool passes the MSGCLASS and output directory as parameters to the command. prtspool has no notion of JES2 job numbers, so it begins by naming the first job output job-1.txt and incrementing the number for each job. One of the major benefits of this architecture is the dynamic nature of it. In my case, I have a separate bash shell script that does all the post-processing, which allows me to customize the formatting on the fly without recompiling prtspool or having to touch anything on MVS.
 
-##Sample Usage
+## Sample Usage
 
 The first thing that needs to be changed is the Hercules configuration file. The print to pipe syntax for 1403 devices is `DEVNUM 1403 |program`. In the case of printer 00E on the Turnkey system, the updated configuration for prtspool would look like this:
 

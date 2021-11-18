@@ -1,0 +1,3 @@
+For ease of use, I recommend putting prtspool and optionally prtpdf, in a 
+folder specified in your PATH variable. I typically use /usr/local/bin on
+Linux systems.

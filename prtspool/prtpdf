@@ -1,0 +1,12 @@
+#!/bin/bash
+if [ "$#" != 2 ]
+then
+  exit
+fi
+cd $2
+for i in *.txt
+do
+OUTPUT=`grep -m 1 JOB $i | cut -c15-24 | sed 's/\s//g'`
+enscript --quiet --no-header --font=Courier-Bold@8/8 --truncate-lines --landscape --margins=25:25:40:40 -p - ${i} | ps2pdf14 - ${OUTPUT}.pdf
+rm $i
+done
